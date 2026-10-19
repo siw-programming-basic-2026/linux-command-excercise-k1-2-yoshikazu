@@ -15,9 +15,19 @@ from ex1_run_command import run_command
 
 def get_usernames(text):
     # TODO: 文字列を行ごとに分け、各行を空白で分けて先頭を取り出す
-    pass
+    text=text.splitlines()
+    nameslist=[line.split()[0] for line in text]
+    namestuple=(line.split()[0] for line in text)
+    namesset={line.split()[0] for line in text}
+    #for line in text:
+     #   names.append(line.split()[0])
+    
+
+    return nameslist,namestuple,namesset
+    
 
 if __name__ == "__main__":
-    print(run_command(['ls']))
+    result=run_command(['who'])
 
-    print(get_usernames(SAMPLE_WHO))
+    print(len(get_usernames(result)[0]))
+    print(len(get_usernames(result)[2]))
